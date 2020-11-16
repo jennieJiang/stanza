@@ -37,6 +37,16 @@ def prepare_ud_dataset(treebank, udbase_dir, tokenizer_dir, short_name, short_la
                                                     "-o", f"{tokenizer_dir}/{short_name}-ud-{dataset}.json"])
 
 def process_treebank(treebank, paths):
+    """
+    Processes a single treebank into train, dev, test parts
+
+    TODO
+    Currently assumes it is always a UD treebank.  There are Thai
+    treebanks which are not included in UD.
+
+    Also, there is no specific mechanism for UD_Arabic-NYUAD or
+    similar treebanks, which need integration with LDC datsets
+    """
     udbase_dir = paths["UDBASE"]
     tokenizer_dir = paths["TOKENIZE_DATA_DIR"]
 
